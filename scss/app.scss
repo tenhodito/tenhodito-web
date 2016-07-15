@@ -240,6 +240,7 @@ body {
 }
 
 .search-results {
+    min-height: 60vh;
     .summary {
         text-align: center;
     }
@@ -276,9 +277,9 @@ body {
         background-color: $blue-bar;
         border-radius: 50%;
         text-align: center;
-        padding: 1.3rem;
+        padding-top: 1.9rem;
         span {
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: bold;
             color: $white;
         }
