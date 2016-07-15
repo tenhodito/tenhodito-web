@@ -24,7 +24,7 @@ def dbseed_command():
     """Seeds the database."""
     print 'Seeding the database...'
     congressmen = dict()
-    with open('final.json', 'r') as data_file:
+    with open('data.json', 'r') as data_file:
         congressmen = json.load(data_file)
 
     congressman = mongo.db.congressmen
