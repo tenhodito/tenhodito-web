@@ -1,7 +1,9 @@
 *.swp
 *.swo
-*.json
+data.json
 .venv
 *.pyc
 static/bower_components/
 .sass-cache/
+node_modules/
+npm-debug.log
