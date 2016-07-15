@@ -14,7 +14,8 @@ def normalized_coherence(value):
     congressmen = filter(lambda x: 'coherence' in x, congressmen)
     congressmen = filter(lambda x: x['coherence'] > 0, congressmen)
     max = congressmen[0]['coherence']
-    min = congressmen[-1]['coherence']
+    # min = congressmen[-1]['coherence']
+    min = 0 # avoid negative coherence
     normalized_value = (((10 - (-10))*(value - min))/(max - min)) + (-10)
     return round(normalized_value, 1)
 
@@ -51,8 +52,13 @@ def ranking():
 @app.route('/busca')
 def search():
     query = request.args['q']
-    search_results = mongo.db.congressmen.find({"$or": [{'nickname': {'$regex': query, '$options': '-i'}}, {'name': {'$regex': query, '$options': '-i'}}]}).sort("coherence", -1)
-    return render_template('search.html', search_results=search_results, normalized_coherence=normalized_coherence)
+    search_results = list(mongo.db.congressmen.find({"$or": [{'nickname': {'$regex': query, '$options': '-i'}}, {'name': {'$regex': query, '$options': '-i'}}]}).sort("coherence", -1))
+    for cm in search_results:
+        if 'coherence' in cm:
+            cm['coherence'] = normalized_coherence(cm['coherence'])
+        else:
+            cm['coherence'] = '*'  # this is lower than digits
+    return render_template('search.html', search_results=search_results)
 
 
 @app.route('/deputado/<nickname>')
