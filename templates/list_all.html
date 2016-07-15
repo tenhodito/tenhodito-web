@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Resultados da Busca{% endblock title %}
+
+{% block content %}
+<div class="search">
+  <div class="row align-center search-form-field">
+    <div class="column small-11 medium-8 large-6">
+      <form action="/busca">
+        <div class="input-group">
+          <input type="text" name="q" class="input-group-field search-input" placeholder="Pesquise aqui o seu deputado">
+          <div class="input-group-button">
+            <button class="button search-button"><i class="mdi mdi-magnify"></i></button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="search-results">
+  <p class="summary">Sua busca retornou {{search_results|length}} deputados!</p>
+  {% for deputy in search_results %}
+  {% if deputy['coherence'] >= 0 %}
+    <div class="row align-center align-middle deputy-result">
+  {% else %}
+    <div class="row align-center align-middle deputy-result negative">
+  {% endif %}
+      <div class="deputy-image">
+        <a href="/deputado/{{deputy['nickname']}}"><img src="{{deputy['photo']}}" alt=""></a>
+      </div>
+      <div class="deputy-info">
+        <a href="/deputado/{{deputy['nickname']}}"><h2>{{deputy['nickname']}}</h2></a>
+        <p>{{deputy['party']}} - {{deputy['state']}}</p>
+      </div>
+      <div class="deputy-index"><span>{{deputy['coherence']}}</span></div>
+    </div>
+  {% endfor %}
+</div>
+{% endblock content %}
+

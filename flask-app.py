@@ -80,3 +80,14 @@ def show_congressman(nickname):
 @app.route('/como-funciona')
 def about_page():
     return render_template('como-funciona.html')
+
+
+@app.route('/deputados')
+def list_all():
+    search_results = list(mongo.db.congressmen.find().sort("coherence", -1))
+    for cm in search_results:
+        if 'coherence' in cm:
+            cm['coherence'] = normalized_coherence(cm['coherence'])
+        else:
+            cm['coherence'] = '*'  # this is lower than digits
+    return render_template('list_all.html', search_results=search_results)
