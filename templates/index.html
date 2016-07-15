@@ -1,18 +1,62 @@
-TOP 5
-<br/>
-{% for cm in top: %}
-  {{ cm['nickname'] }}
-  <br/>
-  {{ cm['coherence'] }}
-  <br/>
-  <br/>
-{% endfor %}
-bottom 5
-<br/>
-{% for cm in bottom: %}
-  {{ cm['nickname'] }}
-  <br/>
-  {{ cm['coherence'] }}
-  <br/>
-  <br/>
-{% endfor %}
+{% extends "base.html" %}
+
+{% block title %}Hackathon{% endblock title %}
+
+{% block content %}
+  <div class="home">
+    <div class="row align-center align-middle main-message">
+      <span class="main-question">o que você faria </span>
+      <span id="subquestion" class="main-subquestion"> se o seu deputado não cumprisse o que prometeu?</span>
+    </div>
+    <img src="/static/images/home.png" class="main-image">
+  </div>
+
+  <div class="row align-center search-form-field">
+    <div class="column small-11 medium-8 large-6">
+      <form action="/search.html">
+        <div class="input-group">
+          <input type="text" class="input-group-field search-input" placeholder="Pesquise aqui o seu deputado">
+          <div class="input-group-button">
+            <button class="button search-button"><i class="mdi mdi-magnify"></i></button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="row align-center brief">
+    <div class="">
+      <p>Veja o ranking de coerência dos deputados federais!</p>
+    </div>
+  </div>
+
+  <div class="row align-center">
+    <div class="row chart-area" id="positiveChart"></div>
+    <div class="row chart-area negative" id="negativeChart"></div>
+  </div>
+
+{% endblock content %}
+
+{% block footer_js %}
+  <script src="/static/js/app.js"></script>
+  <script src="/static/js/charts.js"></script>
+  <script>
+    var top_deputies = [
+    {% for deputy in top %}
+      [ {{ deputy['coherence'] }}, '{{ deputy['photo'] }}',
+        '/deputado/{{ deputy['nickname'] }}', '{{ deputy['nickname'] }}',
+        '{{ deputy['party'] }}'],
+    {% endfor %}
+    ]
+    drawChart('#positiveChart', top_deputies, 'positive');
+
+    var bottom_deputies = [
+    {% for deputy in bottom %}
+      [ {{ deputy['coherence'] }}, '{{ deputy['photo'] }}',
+        '/deputado/{{ deputy['nickname'] }}', '{{ deputy['nickname'] }}',
+        '{{ deputy['party'] }}'],
+    {% endfor %}
+    ]
+    drawChart('#negativeChart', bottom_deputies, 'negative');
+  </script>
+{% endblock footer_js %}

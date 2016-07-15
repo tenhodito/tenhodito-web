@@ -1,18 +1,3 @@
-var data = [
-    [10, '/images/teste2.jpg', '/profile.html', 'Fulano de Tal', 'PMDB'],
-    [8, '/images/teste1.jpg', '/profile.html', 'Fulano de Tal', 'PMDB'],
-    [7, '/images/teste2.jpg', '/profile.html', 'Fulano de Tal', 'PMDB'],
-    [5, '/images/teste2.jpg', '/profile.html', 'Fulano de Tal', 'PMDB'],
-    [4, '/images/teste1.jpg', '/profile.html', 'Fulano de Tal', 'PMDB'],
-]
-
-var data2 = [
-    [10, '/images/teste1.jpg', '/profile.html', 'Fulano de Tal', 'PMDB'],
-    [9, '/images/teste2.jpg', '/profile.html', 'Fulano de Tal', 'PMDB'],
-    [8, '/images/teste2.jpg', '/profile.html', 'Fulano de Tal', 'PMDB'],
-    [6, '/images/teste1.jpg', '/profile.html', 'Fulano de Tal', 'PMDB'],
-    [5, '/images/teste2.jpg', '/profile.html', 'Fulano de Tal', 'PMDB'],
-]
 
 var defineBarClasses = function (type) {
     var classes = 'column bar';
@@ -36,11 +21,11 @@ var getNameAndParty = function (data) {
 }
 
 var scaleHeight = function (value) {
-    return value * 2.5;
+    return Math.abs(value) * 2.5;
 }
 
 var scaleFontSize = function (value) {
-    return value * 1.5;
+    return Math.abs(value) * 1.5;
 }
 
 var drawChart = function (divSelector, data, type) {
@@ -63,6 +48,4 @@ var drawChart = function (divSelector, data, type) {
             .attr('src', function(d) { return d[1];})
             .attr('class', 'float-center');
 }
-
-drawChart('#positiveChart', data, 'positive');
-drawChart('#negativeChart', data2, 'negative');
+// drawChart('#positiveChart', data, 'positive');

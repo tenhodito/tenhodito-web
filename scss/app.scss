@@ -67,6 +67,13 @@ body {
 	padding-left: 2.5rem;
 }
 
+.menu > li > a  {
+    &.title {
+        padding: 0;
+        color: $black;
+    }
+}
+
 .top-bar {
 	border-bottom: 1px solid $light-gray;
     width: 100%;

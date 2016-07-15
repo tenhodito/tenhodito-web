@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}{% endblock title %}</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/css/app.css">
+  <link href="http://cdn.materialdesignicons.com/1.6.50/css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  {% include "includes/topbar.html" %}
+
+  {% block content %}
+  {% endblock content %}
+
+  <div class="footer">
+    <span>Desenvolvido durante a hackathon Cotidiano</span>
+  </div>
+
+  <script src="/static/bower_components/jquery/dist/jquery.js"></script>
+  <script src="/static/bower_components/what-input/what-input.js"></script>
+  <script src="/static/bower_components/foundation-sites/dist/foundation.js"></script>
+  <script src="https://d3js.org/d3.v3.js"></script>
+  {% block footer_js %}
+  {% endblock footer_js %}
+</body>
+</html>
