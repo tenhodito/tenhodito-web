@@ -79,4 +79,4 @@ def show_congressman(nickname):
 
 @app.route('/como-funciona')
 def about_page():
-    return app.send_static_file('como-funciona.html')
+    return render_template('como-funciona.html')

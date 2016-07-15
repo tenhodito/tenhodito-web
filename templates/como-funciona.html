@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Como funciona?{% endblock title %}
+{% block content %}
+
+<div class="gradient">
+  <div class="row how-works">
+    <div class="topic">
+      <h1>Como foi desenvolvido?</h1>
+      <p>O Tenho Dito foi desenvolvido ao longo da primeira <a href="http://www.cotidiano.com.br/hackathon-campcoti1/">Hackathon Cotidiano</a> em Julho de 2016 e sempre será Software Livre sob a licença <a href="https://www.gnu.org/licenses/gpl.txt">GPLv3</a> e seu código pode ser encontrado no nosso <a href="https://github.com/hackathon-contidiano">repositório</a>, onde também é possível encontrar informação de contado dos desenvolvedores.</p>
+      <img class="float-center" src="http://65.60.35.250/~cotidia3/wp-content/uploads/2016/04/logo-cotidiano.png" alt="">
+    </div>
+    <div class="topic">
+        <h1>Como calculamos o Índice de Coerência?</h1>
+        <p>O Tenho Dito cria um saco de palavras para que seja possível transformar textos em vetores para que então sejam feitas comparações de textos através da técnica de similaridade de cossenos. Na inteligência Artificial, o cosseno de dois vetores de sacos de palavras é uma boa métrica para verificar o quanto dois ou mais textos se assemelham, como pode ser verificado <a target="_blank" href="http://nlp.stanford.edu/IR-book/html/htmledition/the-vector-space-model-for-scoring-1.html">nesse livro</a> da Universidade de Stanford.</p>
+        <p>No Tenho Dito, chamamos tal índice de similaridade de <b>COERÊNCIA</b> entre os discursos e as propostas dos deputados, uma vez que os textos comparados, que são obtidos através da API de dados abertos da Câmara dos Deputados, se referem aos discursos e às propostas de cada um dos deputados (comparamos as propostas com os discursos de um mesmo deputado).</p>
+        <p>Sendo assim, uma nota de coerência muito alta ou muito baixa não significa que um deputado é incoerente, mas sim que os textos de seus discursos são mais ou menos semelhantes aos textos de suas propostas: há casos onde a similaridade é alta pois o deputado fez apenas um discurso no último período analisado e tem apenas uma proposta que é referente àquele discurso ou uma nota de coerência baixa onde o deputado tem um volume muito grande de discursos não relacionados às suas propostas.</p>
+
+    </div>
+  </div>
+</div>
+{% endblock content %}
