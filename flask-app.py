@@ -48,14 +48,14 @@ def ranking():
     return render_template('index.html', top=top, bottom=bottom, normalized_coherence=normalized_coherence)
 
 
-@app.route('/search')
+@app.route('/busca')
 def search():
     query = request.args['q']
     search_results = mongo.db.congressmen.find({"$or": [{'nickname': {'$regex': query, '$options': '-i'}}, {'name': {'$regex': query, '$options': '-i'}}]}).sort("coherence", -1)
     return render_template('search.html', search_results=search_results, normalized_coherence=normalized_coherence)
 
 
-@app.route('/congressman/<nickname>')
+@app.route('/deputado/<nickname>')
 def show_congressman(nickname):
     cm = mongo.db.congressmen.find_one({'nickname': nickname})
     top_speech_words = Counter(cm['speeches'])
@@ -71,6 +71,6 @@ def show_congressman(nickname):
     return render_template('show_congressman.html', cm=cm, top_speeches_list=top_speeches_list, top_proposals_list=top_proposals_list)
 
 
-@app.route('/about')
+@app.route('/como-funciona')
 def about_page():
     return 'about static'
