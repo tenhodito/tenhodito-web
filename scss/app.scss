@@ -138,6 +138,10 @@ body {
     margin-bottom: 8rem;
 }
 
+.see-more {
+    margin-top: 3rem;
+}
+
 .footer {
     margin-top: 2rem;
     width: 100%;
@@ -236,6 +240,16 @@ body {
                 }
             }
         }
+    }
+    .no-index {
+        margin-top: 1rem;
+    }
+}
+.analysis {
+    color: gray;
+    font-size: 0.9rem;
+    span {
+        font-weight: bold;
     }
 }
 

@@ -24,6 +24,11 @@
           <span class="index">{{ cm['coherence'] }}</span>
         </div>
       </div>
+      {% if cm['coherence'] == '*' %}
+        <div class="row align-center no-index">
+          <p>Desculpe, não conseguimos dados suficientes para aferir o Índice de Coerência</p>
+        </div>
+      {% else %}
       <div class="row align-spaced profile-content">
         <div class="columns profile-chart">
           <h2>Termos mais falados nos discursos</h2>
@@ -36,6 +41,7 @@
           </div>
         </div>
       </div>
+      {% endif %}
     </div>
   </div>
 </div>
