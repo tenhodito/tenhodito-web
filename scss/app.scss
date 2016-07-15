@@ -101,7 +101,7 @@ body {
     }
 
     .main-message {
-    	height: 50vh;
+    	height: 30vh;
     	font-size: 1.3rem;
     	font-family: "Alegreya Sans SC", sans-serif;
     	.main-question {
@@ -112,6 +112,9 @@ body {
     		font-weight: 400;
             color: darken($dark-gray, 5);
     	}
+    }
+    .logo-area {
+       padding-top: 2rem;
     }
 }
 
