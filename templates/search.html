@@ -1,0 +1,12 @@
+{% for cm in search_results: %}
+  {{ cm['nickname'] }}
+  <br/>
+  {{ cm['email'] }}
+  <br/>
+  {{ cm['phone'] }}
+  <br/>
+  {{ normalized_coherence(cm['coherence']) }}
+  <br/>
+  <br/>
+  <br/>
+{% endfor %}
