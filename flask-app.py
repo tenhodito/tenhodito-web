@@ -42,6 +42,7 @@ def ranking():
     congressmen = filter(lambda x: x['coherence'] > 0, congressmen)
     top = congressmen[:5]
     bottom = congressmen[-5:]
+    bottom = bottom[::-1]
     for cm in top:
         cm['coherence'] = normalized_coherence(cm['coherence'])
     for cm in bottom:
