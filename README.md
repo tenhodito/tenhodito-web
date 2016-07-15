@@ -16,4 +16,7 @@ You also need to install and run Mongodb in order to run this project.
 
 ### Starting the server
 
+First you need to seed the DB from a data.json file in the project root
+
+`FLASK_APP=flask-app.py flask dbseed`
 `FLASK_APP=flask-app.py flask run`
