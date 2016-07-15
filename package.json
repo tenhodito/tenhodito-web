@@ -1,7 +1,7 @@
 {
-  "name": "foundation-sites-template",
+  "name": "flask-app",
   "version": "1.0.0",
-  "description": "Basic template for a new Foundation for Sites project.",
+  "description": "",
   "main": "gulpfile.js",
   "devDependencies": {
     "gulp": "^3.9.0",
@@ -14,16 +14,8 @@
     "start": "gulp",
     "build": "gulp sass"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/zurb/foundation-sites-template.git"
-  },
-  "bugs": {
-    "url": "https://github.com/zurb/foundation-sites/issues",
-    "email": "foundation@zurb.com"
-  },
-  "author": "ZURB <foundation@zurb.com>",
-  "license": "MIT",
+  "author": "Matheus Fernandes <matheus.souza.fernandes@gmail.com>",
+  "license": "GPLv3",
   "private": true,
   "dependencies": {
     "gulp-autoprefixer": "^3.1.0"

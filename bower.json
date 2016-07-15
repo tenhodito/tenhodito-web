@@ -1,22 +1,22 @@
 {
   "name": "flask-app",
-  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
   "authors": [
     "Matheus Fernandes <matheus.souza.fernandes@gmail.com>"
   ],
-  "description": "",
-  "main": "templates/index.html",
   "license": "GPLv3",
   "homepage": "https://github.com/hackathon-contidiano/flask-app",
-  "dependencies": {
-    "foundation-sites": "~6.1.2",
-    "motion-ui": "~1.1.0",
-  },
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
+    "static/bower_components",
     "test",
     "tests"
   ],
+  "dependencies": {
+    "foundation-sites": "~6.2.0",
+    "motion-ui": "~1.2.2"
+  }
 }
