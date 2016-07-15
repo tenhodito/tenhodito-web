@@ -1,0 +1,110 @@
+.chart-area {
+  width: 100%;
+  border-bottom: 0.2rem solid darken($light-gray, 10);
+  margin-bottom: 2rem;
+  &:last-child {
+    margin-bottom: 6rem;
+  }
+  .bar {
+    display: inline-block;
+    position: relative;
+    background-color: $blue-bar;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    padding: 0;
+    transition: all 0.5s;
+    &:hover {
+      background-color: darken($blue-bar, 15);
+      transform: scale(1.05);
+      transition: all 0.5s;
+      .deputy-img {
+        background-color: darken($blue-bar, 20);
+        border: 0.2rem solid darken($blue-bar, 30);
+        transition: all 0.5s;
+        img {
+          transition: all 0.5s;
+        }
+      }
+      .deputy-index {
+        color: $blue-bar;
+        transition: all 0.5s;
+      }
+    }
+    .deputy-name {
+      position: absolute;
+      top: 0;
+      margin-top: -6rem;
+      font-size: 1rem;
+      text-align: center;
+      width: 100%;
+      font-weight: bold;
+      color: $blue-bar
+    }
+    .deputy-img {
+      z-index: 999;
+      height: 8rem;
+      width: 8rem;
+      overflow: hidden;
+      top: 0;
+      margin-top: -4rem;
+      border-radius: 50%;
+      border: 0.2rem solid $blue-bar;
+      transition: all 0.5s;
+      img {
+        width: 8rem;
+        transition: all 0.5s;
+      }
+    }
+    .deputy-index {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      padding: 0.5rem;
+      text-align: right;
+      font-size: 40%;
+      color: darken($blue-bar, 20);
+      vertical-align: bottom;
+      line-height: 1;
+      transition: all 0.5s;
+    }
+  }
+  &.negative {
+    border-bottom: 0;
+    border-top: 0.2rem solid darken($light-gray, 10);
+    .bar {
+      background-color: $red-bar;
+      .deputy-img {
+        border: 0.2rem solid $red-bar;
+      }
+      &:hover {
+        background-color: darken($red-bar, 15);
+        margin-bottom: 0;
+        .deputy-img {
+          background-color: darken($red-bar, 20);
+          border: 0.2rem solid darken($red-bar, 30);
+        }
+        .deputy-index {
+          color: $red-bar;
+        }
+      }
+    }
+    .deputy-index {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      padding: 0.5rem;
+      text-align: right;
+      font-size: 40%;
+      color: darken($red-bar, 20);
+      vertical-align: text-top;
+      line-height: 1;
+      transition: all 0.5s;
+    }
+    .deputy-name {
+      bottom: 0;
+      top: initial;
+      margin-bottom: -6rem;
+      color: $red-bar;
+    }
+  }
+}

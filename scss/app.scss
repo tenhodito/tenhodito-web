@@ -1,0 +1,301 @@
+@charset 'utf-8';
+
+@import 'settings';
+@import 'foundation';
+@import 'motion-ui';
+
+@include foundation-global-styles;
+// @include foundation-grid;
+@include foundation-flex-grid;
+@include foundation-typography;
+@include foundation-button;
+@include foundation-forms;
+// @include foundation-range-input;
+@include foundation-accordion;
+@include foundation-accordion-menu;
+@include foundation-badge;
+@include foundation-breadcrumbs;
+@include foundation-button-group;
+@include foundation-callout;
+@include foundation-close-button;
+@include foundation-menu;
+@include foundation-menu-icon;
+@include foundation-drilldown-menu;
+@include foundation-dropdown;
+@include foundation-dropdown-menu;
+@include foundation-flex-video;
+@include foundation-label;
+@include foundation-media-object;
+@include foundation-off-canvas;
+@include foundation-orbit;
+@include foundation-pagination;
+@include foundation-progress-bar;
+// @include foundation-progress-element;
+// @include foundation-meter-element;
+@include foundation-slider;
+@include foundation-sticky;
+@include foundation-reveal;
+@include foundation-switch;
+@include foundation-table;
+@include foundation-tabs;
+@include foundation-thumbnail;
+@include foundation-title-bar;
+@include foundation-tooltip;
+@include foundation-top-bar;
+@include foundation-visibility-classes;
+@include foundation-float-classes;
+@include foundation-flex-classes;
+
+@include motion-ui-transitions;
+@include motion-ui-animations;
+@import 'charts';
+
+@import 'https://fonts.googleapis.com/css?family=Lato:300,400|Alegreya+Sans+SC:300,500,700';
+
+body {
+	font-family: 'Lato', sans-serif;
+    background-color: darken($white, 5);
+	h1, h2, h3, h4, h5, h6 {
+		font-family: 'Alegreya Sans SC', sans-serif;
+	}
+}
+
+.main-title {
+	font-family: 'Alegreya Sans SC', sans-serif;
+	font-size: 1.3rem;
+	font-weight: 700;
+	padding-left: 2.5rem;
+}
+
+.top-bar {
+	border-bottom: 1px solid $light-gray;
+    width: 100%;
+	.logo {
+		position: absolute;
+		height: 2rem;
+		top: 1rem;
+	}
+}
+
+.gradient {
+    background: $white; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient($white, darken($white, 5)); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient($white, darken($white, 5)); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient($white, darken($white, 5)); /* For Firefox 3.6 to 15 */
+    background: linear-gradient($white, darken($white, 5)); /* Standard syntax */
+}
+
+.home {
+    @extend .gradient;
+
+    .main-image {
+    	width: 100vw;
+    	bottom: 0;
+    }
+
+    .main-message {
+    	height: 50vh;
+    	font-size: 1.3rem;
+    	font-family: "Alegreya Sans SC", sans-serif;
+    	.main-question {
+    		font-weight: 200;
+    		margin-right: 1rem;
+    	}
+    	.main-subquestion {
+    		font-weight: 400;
+            color: darken($dark-gray, 5);
+    	}
+    }
+}
+
+.search-form-field {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    .search-input {
+        background-color: darken($white, 2);
+        border-radius: 2rem 0 0 2rem;
+        padding-left: 1.5rem;
+        height: 3.5rem;
+        font-size: 1.3rem;
+        color: darken($dark-gray, 5);
+    }
+    .search-button {
+        height: 3.5rem;
+        font-size: 1.3rem;
+        padding: 0 2rem 0 1.5rem;
+        border-radius: 0 2rem 2rem 0;
+    }
+}
+
+.brief {
+    margin-bottom: 8rem;
+}
+
+.footer {
+    margin-top: 2rem;
+    width: 100%;
+    text-align: center;
+    border-top: 1.5rem solid darken($white, 15);
+    padding: 1rem;
+    background-color: darken($white, 20);
+}
+
+.profile {
+    @extend .gradient;
+    padding-top: 2rem;
+    .profile-image {
+        position: relative;
+        height: 11rem;
+        width: 11rem;
+        overflow: hidden;
+        border-radius: 50%;
+        border: 0.5rem solid $blue-bar;
+        img {
+            width: 11rem;
+        }
+    }
+    .profile-info {
+        background-color: $white;
+        width: 100%;
+        margin-top: -5rem;
+        padding-top: 6rem;
+        padding-bottom: 2rem;
+        border: 0.3rem solid $blue-bar;
+        .deputy-name {
+            text-align: center;
+            border-bottom: 1px solid $blue-bar;
+        }
+        span {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0;
+        }
+        h2 {
+            font-size: 1rem;
+        }
+    }
+    .profile-content {
+        margin-top: 2rem;
+        border-color: transparent;
+        background-color: transparent;
+    }
+    .profile-chart {
+        text-align: center;
+        h2 {
+            font-weight: bold;
+            font-size: 1rem;
+            font-family: 'Lato', sans-serif;
+        }
+    }
+    .word-cloud {
+        height: 20rem;
+    }
+    .deputy-index {
+        margin-top: 1rem;
+        margin-bottom: -4rem;
+        .index-text {
+            text-align: center;
+            .description {
+                display: block;
+                font-size: 1rem;
+                font-weight: bold;
+            }
+            .index {
+                color: $blue-bar;
+                display: block;
+                font-weight: bold;
+                font-size: 4rem;
+                // border-radius: 50%;
+            }
+        }
+    }
+    &.negative {
+        .profile-image {
+            border: 0.5rem solid $red-bar;
+        }
+        .profile-info {
+            border: 0.3rem solid $red-bar;
+            .deputy-name {
+                border-bottom: 1px solid $red-bar;
+            }
+        }
+        .deputy-index {
+            .index-text {
+                .index {
+                    color: $red-bar;
+                }
+            }
+        }
+    }
+}
+
+.search-results {
+    .summary {
+        text-align: center;
+    }
+    .deputy-image {
+        position: relative;
+        height: 8rem;
+        width: 8rem;
+        overflow: hidden;
+        margin-right: -4rem;
+        border-radius: 50%;
+        border: 0.2rem solid $blue-bar;
+        img {
+            width: 8rem;
+        }
+    }
+    .deputy-info {
+        width: 40rem;
+        height: 8rem;
+        background-color: $white;
+        border: 0.1rem solid $light-gray;
+        padding: 1.5rem 5rem 1.5rem 5rem;
+        a {
+            color: $blue-bar;
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+    }
+    .deputy-index {
+        width: 8rem;
+        height: 8rem;
+        margin-left: -4rem;
+        border: 0.2rem solid $blue-bar;
+        background-color: $blue-bar;
+        border-radius: 50%;
+        text-align: center;
+        padding: 1.3rem;
+        span {
+            font-size: 3rem;
+            font-weight: bold;
+            color: $white;
+        }
+    }
+    .deputy-result {
+        margin-bottom: 1rem;
+        &.negative {
+            .deputy-image {
+                border: 0.2rem solid $red-bar;
+            }
+            .deputy-index {
+                border: 0.2rem solid $red-bar;
+                background-color: $red-bar;
+            }
+            .deputy-info {
+                a {
+                    color: $red-bar;
+                }
+            }
+        }
+        transition: all 0.2s;
+        &:hover {
+            transform: scale(1.1);
+            transition: all 0.2s;
+        }
+    }
+}
