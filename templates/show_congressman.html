@@ -27,11 +27,13 @@
       <div class="row align-spaced profile-content">
         <div class="columns profile-chart">
           <h2>Termos mais falados nos discursos</h2>
-          <div class="word-cloud" id="speechCloud"></div>
+          <div class="word-cloud" id="speechCloud">
+          </div>
         </div>
         <div class="columns profile-chart">
           <h2>Termos mais falados nas propostas</h2>
-          <div class="word-cloud" id="proposalCloud"></div>
+          <div class="word-cloud" id="proposalCloud">
+          </div>
         </div>
       </div>
     </div>
@@ -41,44 +43,30 @@
 {% endblock content %}
 
 {% block footer_js %}
-  <script src="/static/js/d3.layout.cloud.js"></script>
-  <script src="/static/js/clouds.js"></script>
+  <link rel="stylesheet" href="/static/bower_components/jqcloud2/dist/jqcloud.min.css">
+  <script src="/static/bower_components/jqcloud2/dist/jqcloud.min.js"></script>
   <script>
-    var w = $(".word-cloud").width(),
-        h = $(".word-cloud").height();
-
+    var drawCloud = function(selector, words) {
+      {% if cm['coherence'] >= 0 %}
+        $(selector).jQCloud(words, {delay: 70,});
+      {% else %}
+        $(selector).jQCloud(words, {delay: 70,
+          colors: ["#800026", "#bd0026", "#e31a1c", "#fc4e2a", "#fd8d3c", "#feb24c", "#fed976",]
+        });
+      {% endif %}
+    }
     var speechWords = [
       {% for word in top_speech_words %}
-        {text: '{{ word[0] }}', size: {{ word[1] }}},
+        {text: '{{ word[0] }}', weight: {{ word[1] }}},
       {% endfor %}
-    ]
-
-    var speechLayout = d3.layout.cloud()
-        .size([w, h])
-        .words(speechWords)
-        .padding(10)
-        .rotate(function() { return ~~(Math.random() * 2) * 90; })
-        .font("Lato")
-        .fontSize(function(d) { return d.size; })
-        .on("end", drawSpeechCloud);
-
-    speechLayout.start();
+    ];
+    drawCloud('#speechCloud', speechWords);
 
     var proposalWords = [
       {% for word in top_proposal_words %}
-        {text: '{{ word[0] }}', size: {{ word[1] }}},
+        {text: '{{ word[0] }}', weight: {{ word[1] }}},
       {% endfor %}
-    ]
-    var proposalLayout = d3.layout.cloud()
-        .size([w, h])
-        .words(proposalWords)
-        .padding(10)
-        .rotate(function() { return ~~(Math.random() * 2) * 90; })
-        .font("Lato")
-        .fontSize(function(d) { return d.size; })
-        .on("end", drawProposalCloud);
-    proposalLayout.start();
-
+    ];
+    drawCloud('#proposalCloud', proposalWords);
   </script>
-
 {% endblock footer_js %}
