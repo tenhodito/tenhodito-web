@@ -5,7 +5,11 @@
   <br/>
   {{ cm['phone'] }}
   <br/>
-  {{ normalized_coherence(cm['coherence']) }}
+  {{ if 'coherence' in cm]) }}
+    {{ normalized_coherence(cm['coherence']) }}
+  {{ else }}
+    Este deputado não tem discursos nem propostas
+  {{ endif }}
   <br/>
   <br/>
   <br/>

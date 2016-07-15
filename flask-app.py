@@ -73,4 +73,4 @@ def show_congressman(nickname):
 
 @app.route('/como-funciona')
 def about_page():
-    return 'about static'
+    return app.send_static_file('como-funciona.html')
