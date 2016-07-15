@@ -42,10 +42,10 @@ def ranking():
     top = congressmen[:5]
     bottom = congressmen[-5:]
     for cm in top:
-        print cm['name'], normalized_coherence(cm['coherence'])
+        cm['coherence'] = normalized_coherence(cm['coherence'])
     for cm in bottom:
-        print cm['name'], normalized_coherence(cm['coherence'])
-    return render_template('index.html', top=top, bottom=bottom, normalized_coherence=normalized_coherence)
+        cm['coherence'] = normalized_coherence(cm['coherence'])
+    return render_template('index.html', top=top, bottom=bottom)
 
 
 @app.route('/busca')
@@ -68,6 +68,11 @@ def show_congressman(nickname):
         top_speeches_list.append(k)
     for k, v in top_proposal_words:
         top_proposals_list.append(k)
+    # verify if coherence is present
+    if 'coherence' in cm:
+        cm['coherence'] = normalized_coherence(cm['coherence'])
+    else:
+        cm['coherence'] = '*'  # this is lower than digits
     return render_template('show_congressman.html', cm=cm, top_speeches_list=top_speeches_list, top_proposals_list=top_proposals_list)
 
 

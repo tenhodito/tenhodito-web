@@ -3,7 +3,7 @@ TOP 5
 {% for cm in top: %}
   {{ cm['nickname'] }}
   <br/>
-  {{ normalized_coherence(cm['coherence']) }}
+  {{ cm['coherence'] }}
   <br/>
   <br/>
 {% endfor %}
@@ -12,7 +12,7 @@ bottom 5
 {% for cm in bottom: %}
   {{ cm['nickname'] }}
   <br/>
-  {{ normalized_coherence(cm['coherence']) }}
+  {{ cm['coherence'] }}
   <br/>
   <br/>
 {% endfor %}
